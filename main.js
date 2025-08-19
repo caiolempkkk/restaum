@@ -44,5 +44,11 @@ function cliqueCelula(linha, coluna) {
   }
 }
 
+document.getElementById("reiniciar").addEventListener("click", () => {
+  jogo = new Tabuleiro();
+  render();
+});
+
 render();
+
 
