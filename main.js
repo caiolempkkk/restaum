@@ -51,4 +51,34 @@ document.getElementById("reiniciar").addEventListener("click", () => {
 
 render();
 
+function render() {
+  let container = document.getElementById("tabuleiro");
+  container.innerHTML = "";
+
+  for (let i = 0; i < jogo.linhas; i++) {
+    let linhaDiv = document.createElement("div");
+    linhaDiv.classList.add("linha");
+
+    for (let j = 0; j < jogo.colunas; j++) {
+      let celula = document.createElement("div");
+      celula.classList.add("celula");
+
+      if (jogo.estado[i][j] === -1) {
+        celula.classList.add("invalida");
+      } else if (jogo.estado[i][j] === 1) {
+        celula.classList.add("peca");
+      } else {
+        celula.classList.add("vazio");
+      }
+
+      if (origem && origem.linha === i && origem.coluna === j) {
+        celula.classList.add("selecionada");
+      }
+
+      celula.addEventListener("click", () => cliqueCelula(i, j));
+      linhaDiv.appendChild(celula);
+    }
+    container.appendChild(linhaDiv);
+  }
+}
 
