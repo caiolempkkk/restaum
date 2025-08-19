@@ -82,3 +82,10 @@ function render() {
   }
 }
 
+if (jogo.realizarMovimento(origem, destino)) {
+  render();
+  if (jogo.contarPecas() === 1) {
+    setTimeout(() => alert("Parabéns! Você venceu!"), 100);
+  }
+}
+
