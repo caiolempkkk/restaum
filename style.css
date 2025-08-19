@@ -5,18 +5,12 @@ body {
 }
 
 #tabuleiro {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.linha {
-  display: flex;
-}
-
-.celula {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #333;
+  display: grid;
+  grid-template-columns: repeat (7, 40px);
+  grid-template-rows: repeat (7, 40px);
+  gap: 2px;
+  margin: 20px auto;
+  width: max-content;
 }
 
 .peca {

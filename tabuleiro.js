@@ -53,7 +53,7 @@ export class Tabuleiro {
   }
 }
 
-contarPecas() {
+contarPecas() ;{
   let total = 0;
   for (let i = 0; i < this.linhas; i++) {
     for (let j = 0; j < this.colunas; j++) {
