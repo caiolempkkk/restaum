@@ -1,6 +1,7 @@
 import { Tabuleiro } from "./tabuleiro.js";
 
 let jogo = new Tabuleiro();
+let origem = null;
 
 function render() {
   let container = document.getElementById("tabuleiro");
@@ -22,10 +23,26 @@ function render() {
         celula.classList.add("vazio");
       }
 
+      celula.addEventListener("click", () => cliqueCelula(i, j));
       linhaDiv.appendChild(celula);
     }
     container.appendChild(linhaDiv);
   }
 }
 
+function cliqueCelula(linha, coluna) {
+  if (!origem) {
+    if (jogo.estado[linha][coluna] === 1) {
+      origem = { linha, coluna };
+    }
+  } else {
+    let destino = { linha, coluna };
+    if (jogo.realizarMovimento(origem, destino)) {
+      render();
+    }
+    origem = null;
+  }
+}
+
 render();
+
